@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 
-import Button from './button';
-import Circle from './circle';
+import Button from '../components/button';
+import Circle from '../components/circle';
 
 export default class Game extends Component {
   state = {};
@@ -11,7 +11,9 @@ export default class Game extends Component {
     return (
       <View style={styles.container}>
         <View style={(styles.lineStyle, { flex: 1 })}>
-          <Text>Jogador 1</Text>
+          <View style={styles.sides}>
+            <Text style={{ textAlign: 'center' }}>Jogador 1</Text>
+          </View>
         </View>
         <View style={(styles.lineStyle, { flex: 2 })}>
           <Button component={<Text>FIM</Text>} />
@@ -25,7 +27,10 @@ export default class Game extends Component {
           <Button component={<Text>INICIO</Text>} />
         </View>
         <View style={(styles.lineStyle, { flex: 1 })}>
-          <Text>Jogador 2</Text>
+          <View style={(styles.lineStyle, { flex: 1 })} />
+          <View style={(styles.lineStyle, { flex: 1 })}>
+            <Text style={{ textAlign: 'center' }}>Jogador 2</Text>
+          </View>
         </View>
       </View>
     );
@@ -45,5 +50,12 @@ const styles = StyleSheet.create({
     width: '100%',
     justifyContent: 'center',
     alignItems: 'center'
+  },
+  sides: {
+    flexDirection: 'column',
+    width: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flex: 1
   }
 });
