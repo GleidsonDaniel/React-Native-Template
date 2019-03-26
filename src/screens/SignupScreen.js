@@ -13,7 +13,7 @@ import { connect } from 'react-redux';
 const background = require('../assets/bg.jpg');
 const logo = require('../assets/kinsta.png');
 
-class LoginScreen extends Component {
+class SignUpScreen extends Component {
   static navigationOptions = {
     title: 'Login',
     header: null
@@ -21,14 +21,18 @@ class LoginScreen extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      name: '',
+      email: '',
+      password: ''
+    };
   }
 
   componentDidMount() {}
 
-  signUp = () => {
+  signIn = () => {
     const { navigation } = this.props;
-    navigation.navigate('SignUp');
+    navigation.goBack();
   };
 
   render() {
@@ -40,9 +44,14 @@ class LoginScreen extends Component {
           style={styles.input}
           underlineColorAndroid="transparent"
           placeholderTextColor="#FFFFFF"
+          placeholder="Digite seu nome"
+        />
+        <TextInput
+          style={styles.input}
+          underlineColorAndroid="transparent"
+          placeholderTextColor="#FFFFFF"
           placeholder="Digite seu e-mail"
         />
-
         <TextInput
           style={styles.input}
           underlineColorAndroid="transparent"
@@ -52,12 +61,12 @@ class LoginScreen extends Component {
         />
 
         <TouchableOpacity onPress={() => {}} style={styles.actionButton}>
-          <Text style={styles.actionButtontext}>Login</Text>
+          <Text style={styles.actionButtontext}>Fazer cadastro</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={this.signUp} style={styles.signButton}>
+        <TouchableOpacity onPress={this.signIn} style={styles.signButton}>
           <Text style={styles.signButtonText}>
-            Ainda não tem cadastro?
+            Já tem cadastro?
             {'\n'}
             Clique aqui
           </Text>
@@ -123,9 +132,9 @@ const mapStateToProps = state => {
 
 const mapDispachToProps = {};
 
-const Login = connect(
+const SignUp = connect(
   mapStateToProps,
   mapDispachToProps
-)(LoginScreen);
+)(SignUpScreen);
 
-export default Login;
+export default SignUp;

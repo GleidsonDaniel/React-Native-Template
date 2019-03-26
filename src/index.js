@@ -1,10 +1,10 @@
-import './config/reactotron';
+import './config/ReactotronConfig';
 
 import React from 'react';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 
-import { loja, persistor } from './store';
+import { loja, persistor } from './config';
 import Routes from './routes';
 
 const App = () => {

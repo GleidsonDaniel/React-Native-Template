@@ -1,6 +1,9 @@
 import { combineReducers } from 'redux';
-import playReducer from './playReducer';
 
-export default combineReducers({
-  playReducer
+import AuthenticationReducer from './AuthenticationReducer';
+
+const Reducers = combineReducers({
+  AuthenticationReducer
 });
+
+export default Reducers;
